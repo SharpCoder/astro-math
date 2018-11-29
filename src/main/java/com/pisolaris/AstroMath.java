@@ -23,7 +23,12 @@ public class AstroMath {
     }
 
     public static double declinationToDegrees(double degrees, double minutes, double seconds) {
-        return degrees + timeToDec(0 , minutes, seconds);
+        double result = Math.abs(degrees) + timeToDec(0, minutes, seconds);
+        if (degrees < 0) {
+            return -1 * result;
+        } else {
+            return result;
+        }
     }
 
     public static double coordToDec(double degrees, double minutes) {
